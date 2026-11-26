@@ -1,4 +1,3 @@
-// src/models/products.model.js
 import { db } from '../data/data.js';
 import {
   collection,
@@ -9,9 +8,10 @@ import {
   doc
 } from 'firebase/firestore';
 
+// Referencia a la colección "products" en Firestore
 const productsCollection = collection(db, 'products');
 
-// Método para buscar un producto por su ID
+// Busca un producto puntual por su ID (devuelve null si no existe)
 export async function getProductById(id) {
   const productDoc = await getDoc(doc(productsCollection, id));
   if (productDoc.exists()) {
@@ -21,7 +21,7 @@ export async function getProductById(id) {
   }
 }
 
-// Método para obtener todos los productos
+// Obtiene todos los documentos de la colección products
 export async function getAllProducts() {
   const querySnapshot = await getDocs(productsCollection);
   const products = [];
@@ -31,13 +31,13 @@ export async function getAllProducts() {
   return products;
 }
 
-// Método para guardar un producto en Firestore
+// Guarda un nuevo producto en Firestore y devuelve el objeto con su ID generado
 export async function saveProduct(product) {
   const docRef = await addDoc(productsCollection, product);
   return { id: docRef.id, ...product };
 }
 
-// Método para eliminar un producto por su ID
+// Elimina un producto por su ID
 export async function deleteProduct(id) {
   await deleteDoc(doc(productsCollection, id));
 }

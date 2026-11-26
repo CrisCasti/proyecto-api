@@ -1,11 +1,13 @@
 import { generateToken } from '../utils/token-generator.js';
 
+// Credenciales de ejemplo para validar el acceso
 const default_user = {
   id: 1,
   email: 'user@email.com',
   password: 'strongPass123'
 };
 
+// Valida credenciales y devuelve el token JWT (200) o error de autenticación (401)
 export async function login(req, res) {
   const { email, password } = req.body;
 

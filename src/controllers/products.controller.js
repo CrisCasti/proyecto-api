@@ -1,5 +1,6 @@
 import * as productsService from '../services/products.service.js';
 
+// Obtiene todos los productos y responde con estado 200 o 500 ante error
 export const getAllProducts = async (req, res) => {
   try {
     const products = await productsService.getAllProducts();
@@ -9,6 +10,7 @@ export const getAllProducts = async (req, res) => {
   }
 };
 
+// Busca un producto por ID: devuelve 200 si existe o 404 si no se encuentra
 export const getProductById = async (req, res) => {
   try {
     const { id } = req.params;
@@ -24,6 +26,7 @@ export const getProductById = async (req, res) => {
   }
 };
 
+// Crea un nuevo producto a partir del body y devuelve estado 201
 export const createProduct = async (req, res) => {
   try {
     const newProduct = await productsService.createProduct(req.body);
@@ -33,6 +36,7 @@ export const createProduct = async (req, res) => {
   }
 };
 
+// Elimina un producto por ID y confirma con estado 200
 export const deleteProduct = async (req, res) => {
   try {
     const { id } = req.params;
