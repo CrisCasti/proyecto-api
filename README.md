@@ -74,6 +74,8 @@ proyecto_api/
    FIREBASE_AUTH_DOMAIN=tu_auth_domain
    FIREBASE_STORAGE_BUCKET=tu_storage_bucket
    FIREBASE_APP_ID=tu_app_id
+   USER_EMAIL=tu_email@ejemplo.com
+   USER_PASSWORD=tu_password
    ```
 
 3. **Iniciar el servidor:**
@@ -96,8 +98,8 @@ Valida las credenciales del usuario y devuelve un **JWT** con 1 hora de vigencia
 **Body (`application/json`):**
 ```json
 {
-  "email": "user@email.com",
-  "password": "strongPass123"
+  "email": "tu_email@ejemplo.com",
+  "password": "tu_password"
 }
 ```
 
